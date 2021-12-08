@@ -19,3 +19,16 @@ li:first-child{
 li:last-child{
   margin-top: 10px;
 }
+.dlt{
+  max-width: 168px;
+}
+th{
+  bottom: auto;
+}
+.names{
+  border: 3px solid black;
+}
+td {
+  border: 3px solid black;
+  text-align: right;
+}
