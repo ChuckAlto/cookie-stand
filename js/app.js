@@ -118,8 +118,8 @@ tr.appendChild(td);
 //     tr.appendChild(td);
 
 //     console.log(storesHourly);
-    // console.log(i, x);
-    // console.log(i + x);
+// console.log(i, x);
+// console.log(i + x);
 
 
 //   }
