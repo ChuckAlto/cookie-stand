@@ -109,19 +109,19 @@ let td = document.createElement('td');
 td.textContent = 'Totals per hour';
 tr.appendChild(td);
 
-// td = document.createElement('td');
-// for (let i = 0; i < hours.length; i++) {
-//   let hourlyTotals = 0;
-//   for (let x = 0; x < stores.length; x++) {
-//     let storesHourly = stores[x].cookiesSalesPerHour[i];
-//     td.textContent = `${stores[x].cookiesSalesPerHour[x]}`;
-//     tr.appendChild(td);
-
-//     console.log(storesHourly);
-// console.log(i, x);
-// console.log(i + x);
+td = document.createElement('td');
+for (let i = 0; i < hours.length; i++) {
+  let hourlyTotals = 0;
+  for (let x = 0; x < stores.length; x++) {
+    hourlyTotals += stores[x].cookiesSalesPerHour[i];
 
 
-//   }
-// }
+    td.textContent = `${hourlyTotals}`;
+    tr.appendChild(td);
 
+    console.log(hourlyTotals);
+
+
+
+  }
+}
