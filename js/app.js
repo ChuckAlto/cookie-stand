@@ -1,23 +1,23 @@
 'use strict';
 
-// console.log('hello world');
+
 
 let section = document.getElementById('seattle');
-// console.log(section);
+
 
 let hours = [' 6:00am', ' 7:00am', ' 8:00am', ' 9:00am', '10:00am', '11:00am', '12:00pm', ' 1:00pm', ' 2:00pm', ' 3:00pm', ' 4:00pm', ' 5:00pm', ' 6:00pm', ' 7:00pm'];
+let tfoot =document.createElement('tfoot');
 let stores = [];
 let totalsArr = 0;
-// console.log(hours);
-// console.log(stores);
 
-function CityName(name, minCustPerHour, maxCustPerHour, avgCookiesPerSale, cookiesSalesPerHour, dailyTotal) {
+
+function CityName(name, minCustPerHour, maxCustPerHour, avgCookiesPerSale) {
   this.name = name;
   this.minCustPerHour = minCustPerHour;
   this.maxCustPerHour = maxCustPerHour;
   this.avgCookiesPerSale = avgCookiesPerSale;
-  this.cookiesSalesPerHour = cookiesSalesPerHour;
-  this.dailyTotal = dailyTotal;
+  this.cookiesSalesPerHour = [];
+  this.dailyTotal = 0;
   stores.push(this);
 }
 
@@ -35,16 +35,36 @@ CityName.prototype.calcCookieSalesPerHour = function () {
     totalsArr += cookies;
   }
 };
-let seattle = new CityName('Seattle', 23, 65, 6.3, [], 0);
-let tokyo = new CityName('Tokyo', 3, 24, 1.2, [], 0);
-let dubai = new CityName('Dubai', 11, 38, 3.7, [], 0);
-let paris = new CityName('Paris', 20, 38, 2.3, [], 0);
-let lima = new CityName('Lima', 2, 16, 4.6, [], 0);
-// console.log(seattle);
+let seattle = new CityName('Seattle', 23, 65, 6.3);
+let tokyo = new CityName('Tokyo', 3, 24, 1.2);
+let dubai = new CityName('Dubai', 11, 38, 3.7);
+let paris = new CityName('Paris', 20, 38, 2.3);
+let lima = new CityName('Lima', 2, 16, 4.6);
 
-// console.log(seattle.avgSalesPerHour());
-// console.log(seattle.custPerHour());
-// console.log(seattle.cookiesSalesPerHour);
+const cityForm = document.getElementById('add-city');
+
+
+function handleSubmit(event){
+  event.preventDefault();
+
+  let city = event.target.city.value;
+  let mincust = event.target.mincust.value;
+  let maxcust = event.target.maxcust.value;
+  let avgcookiesperhour = event.target.avgcookiesperhour.value;
+  console.log(city);
+  console.log(mincust);
+
+  const newCity = new CityName(city, mincust, maxcust, avgcookiesperhour);
+
+  newCity.render();
+  cityForm.reset();
+  tfoot.innerHTML = '';
+  renderFooter();
+
+}
+
+
+cityForm.addEventListener('submit', handleSubmit);
 
 
 let article = document.createElement('article');
@@ -78,9 +98,10 @@ CityName.prototype.render = function () {
 
   this.calcCookieSalesPerHour();
 
-
+  let tbody = document.createElement('tbody');
+  table.appendChild(tbody);
   tr = document.createElement('tr');
-  table.appendChild(tr);
+  tbody.appendChild(tr);
 
   th = document.createElement('th');
   th.setAttribute('class', 'names');
@@ -103,34 +124,35 @@ tokyo.render();
 dubai.render();
 paris.render();
 lima.render();
+renderFooter();
 
-tr = document.createElement('tr');
-table.appendChild(tr);
-let td = document.createElement('td');
-td.textContent = 'Totals per hour';
-tr.appendChild(td);
+function renderFooter (){
 
-for (let i = 0; i <hours.length; i++) {
-  td = document.createElement('td');
-  let hourlyTotals = 0;
-  console.log(hours);
-  for (let x = 0; x < stores.length; x++) {
-    hourlyTotals += stores[x].cookiesSalesPerHour[i];
-    console.log(hourlyTotals);
+
+  table.appendChild(tfoot);
+  tr = document.createElement('tr');
+  tfoot.appendChild(tr);
+  let td = document.createElement('td');
+  td.textContent = 'Totals per hour';
+  tr.appendChild(td);
+
+  for (let i = 0; i <hours.length; i++) {
+    td = document.createElement('td');
+    let hourlyTotals = 0;
+    for (let x = 0; x < stores.length; x++) {
+      hourlyTotals += stores[x].cookiesSalesPerHour[i];
+    }
     td.textContent = `${hourlyTotals}`;
     tr.appendChild(td);
   }
+
+  let dailyHourlyTotals = 0;
+  dailyHourlyTotals += totalsArr;
+  th = document.createElement('th');
+  th.setAttribute('class', 'dht');
+  th.textContent = `${dailyHourlyTotals}`;
+  tr.appendChild(th);
 }
 
-let dailyHourlyTotals = 0;
-dailyHourlyTotals += totalsArr;
-th = document.createElement('th');
-th.setAttribute('class', 'dht');
-th.textContent = `${dailyHourlyTotals}`;
-tr.appendChild(th);
 
 
-const cityForm = document.getElementById('add-city');
-
-
-cityForm.addEventListener('submit', handleSubmit);
