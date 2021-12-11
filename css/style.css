@@ -3,6 +3,7 @@
   font-family: Arial, Helvetica, sans-serif;
   color: darkslategray;
   background-color: whitesmoke;
+  
 }
 h2 {
   margin-left: 40px;
@@ -18,9 +19,6 @@ li:first-child{
   margin-top: 10px;
 }
 
-li:last-child{
-  margin-top: 10px;
-}
 .dlt{
   max-width: 168px;
 }
@@ -42,11 +40,6 @@ td {
 
 
 
-
-.indexbody{
-  width: 960;
-  /* height: 100%; */
-}
 .indexhead{
 
 display: inline-block;
@@ -73,6 +66,8 @@ display: inline-block;
   float:right;
   margin-top: 1em;
   margin-right: 1em;
+  width: 30px;
+  height: 30px;
 }
 
 header li{
@@ -81,16 +76,26 @@ header li{
   border: .3em inset rgb(205, 127, 50);
   font-size: 2em;
 }
+
 header a {
   text-decoration: none;
   color: black;
 }
 
+main {
+  width: 100%;
+  margin: auto;
+}
+main section:first-child{
+  display: inline-block;
+}
 
 .pHours {
   float: left;
   font-size: 2em;
   height: 30em;
+  margin-top: 65px;
+  margin-right: 25px;
   border-right: 10px inset rgb(205, 127, 50);
   border-bottom: 10px inset rgb(205, 127, 50);
   border-top: 10px inset rgb(205, 127, 50);
@@ -100,11 +105,12 @@ header a {
 }
 
 .famPic{
-  float: left;
+  float: right;
   margin-left: 1em;
   margin-right: 1em;
   width: 50em;
   height: 40em;
+  box-shadow: 10px 10px 30px black;
   
 
 }
@@ -120,19 +126,23 @@ header a {
 
 .ourStory{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  float: none;
+  /* float: none; */
   margin-right: 1em;
   margin-top: 1em;
   font-size: 2.2em;
   color: black;
+  text-indent: 40px;
   
   
 }
 hr{
-  width: 80%;
-  height: 2px;
-  margin-left: auto;
-  margin-right: auto;
+  border: 0;
+  height: 247px;
+  background-image: url(../img/salmon.png);
+  background-repeat: repeat;
+  width: 100%;
+  margin-top: 50px;
+  background-color: transparent;
   
 
 }
@@ -153,11 +163,13 @@ section h3{
   text-align: center;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman';
   color: black;
+  box-shadow: 10px 10px 30px black;
 }
 .imgShirt{
   margin-bottom: 1em;
   margin-top: 1em;
   border: .5em solid black;
+  
 }
 .art2 p {
   text-align: left;
@@ -173,6 +185,7 @@ section h3{
   margin: 3em 10em;
   border: .2em solid black;
   text-align: center;
+  box-shadow: 10px 10px 30px black;
 }
 .imgCutter{
   margin-bottom: 1em;
@@ -195,6 +208,7 @@ section h3{
   margin: 3em 10em;
   border: .2em solid black;
   text-align: center;
+  box-shadow: 10px 10px 30px black;
 }
 
 .imgFrosted{
