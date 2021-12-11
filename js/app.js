@@ -48,9 +48,9 @@ function handleSubmit(event){
   event.preventDefault();
 
   let city = event.target.city.value;
-  let mincust = event.target.mincust.value;
-  let maxcust = event.target.maxcust.value;
-  let avgcookiesperhour = event.target.avgcookiesperhour.value;
+  let mincust = +event.target.mincust.value;
+  let maxcust = +event.target.maxcust.value;
+  let avgcookiesperhour = +event.target.avgcookiesperhour.value;
   console.log(city);
   console.log(mincust);
 
@@ -62,7 +62,6 @@ function handleSubmit(event){
   renderFooter();
 
 }
-
 
 cityForm.addEventListener('submit', handleSubmit);
 

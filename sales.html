@@ -11,25 +11,25 @@
     <a  href="index.html">Home</a>
   </header>
   <main>
-    <section id = "seattle"></section>
-    <section id = "tokyo"></section>
     <section>
       <form id="add-city">
         <fieldset>
           <legend>Add New City</legend>
           <label for="city" >City</label>
-          <input id="city" type="text" name="city">
+          <input id="city" type="text" name="city" required>
           <label for="mincust" >Minimum Customers Per hour</label>
-          <input  id="mincust" type="number" name="mincust">
+          <input  id="mincust" type="number" name="mincust" required>
           <label for="maxcust" >Maximum Customers per hour</label>
-          <input id="maxcust" type="number"name="maxcust">
+          <input id="maxcust" type="number"name="maxcust" required>
           <label for="avgcookiesperhour" >Average cookies Per Sale</label>
-          <input id="avgcookiesperhour" type="number" name="avgcookiesperhour">
-
+          <input id="avgcookiesperhour" type="float" name="avgcookiesperhour" required>
+  
         </fieldset>
         <button type="submit">Submit</button>
       </form>
     </section>
+    <section id = "seattle"></section>
+    <section id = "tokyo"></section>
   </main>
   <script src="js/app.js"></script>
 </body>
